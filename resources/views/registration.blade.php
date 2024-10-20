@@ -75,6 +75,16 @@
 <body>
 <div class="form-container fade-in">
     <h1 class="text-center mb-6">Register for Vaccination</h1>
+
+    @if ($errors->any())
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ route('register') }}" method="POST" class="space-y-5">
         @csrf
         <div class="mt-2">
